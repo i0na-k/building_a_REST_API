@@ -1,0 +1,22 @@
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
+var bookModel = new Schema({
+  title: {
+    type: String, default: 'TEST'
+  },
+  author:{
+    type: String,
+  },
+  genre:{
+    type:String,
+  },
+  year:{
+    type:Number, default: 2018
+  },
+  read:{
+    type: Boolean, default:true
+  },
+});
+
+module.exports = mongoose.model('Book', bookModel);
