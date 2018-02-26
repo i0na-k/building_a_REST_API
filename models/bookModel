@@ -3,13 +3,13 @@ var mongoose = require('mongoose'),
 
 var bookModel = new Schema({
   title: {
-    type: String, default: 'TEST'
+    type: String
   },
   author:{
-    type: String,
+    type: String
   },
   genre:{
-    type:String,
+    type:String
   },
   year:{
     type:Number, default: 2018
