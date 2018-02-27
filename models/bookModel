@@ -16,7 +16,7 @@ var bookModel = new Schema({
   },
   read:{
     type: Boolean, default:true
-  },
+  }
 });
 
 module.exports = mongoose.model('Book', bookModel);

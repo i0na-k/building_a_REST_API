@@ -15,9 +15,7 @@ var bookController = function(Book){
 
     if(author!=null) {
       var firstCharAuthor = author[0];
-      console.log('--------------------->>>>>'+ author.charAt(0));
       if (!author.startsWith(firstCharAuthor.toUpperCase())){
-        console.log('FAILING TEST');
         res.status(400);
         res.send("Author must begin with upper case letter");
       }
@@ -43,8 +41,18 @@ var bookController = function(Book){
             Book.find(query, function(err,books){
                 if(err)
                     res.status(500).send(err);
-                else
-                    res.json(books);
+                else {
+                  var returnBooks = [];
+                  books.forEach(function (element, index, array) {
+                    var newBook = element.toJSON();
+                    newBook.links = {};
+                    newBook.links.self = 'http://' + req.headers.host + '/api/books/'
+                    + newBook._id;
+                    returnBooks.push(newBook);
+                  })
+
+                  res.json(returnBooks);
+                }
             });
         }
   return {

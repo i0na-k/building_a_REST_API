@@ -22,7 +22,7 @@ describe('Book Controller Tests', function(){
     })
   })
   describe('Title validation', function(){
-    it('should match title', function(){
+    it('Should match expected title', function(){
       var Book = function(book){this.save = function(){}};
       var req = {
         body: {
@@ -42,7 +42,7 @@ describe('Book Controller Tests', function(){
   })
 
   describe('Year should be greater than 2000', function(){
-    it('year should be greater than 2000', function(){
+    it('Year should be greater than 2000', function(){
       var Book = function(book){this.save = function(){}};
       var req = {
         body: {
